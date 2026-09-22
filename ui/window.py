@@ -1,6 +1,15 @@
 import tkinter as tk
 from calculator.calculator import calculateResult
+import os
+import sys
 
+def resourcePath(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+    
+    return os.path.join(base_path, relative_path)
 
 def createWindow():
 
@@ -8,6 +17,9 @@ def createWindow():
     window.title("Calculator")
     window.geometry("300x450")
     window.configure(bg="#202020")
+    
+    icon = tk.PhotoImage(file=resourcePath("calculator.png"))
+    window.iconphoto(False, icon)
 
     numberField = tk.Entry(
         window,
@@ -40,6 +52,7 @@ def createWindow():
             numberField.delete(len(numberField.get()) - 1, tk.END)
 
     def calculatePercent():
+        calculate()
         insertInput("/100")
         calculate()
 

@@ -1,2 +1,8 @@
 __init__.py
 __pycache__
+*.png
+*.ico
+*.exe
+dis
+build
+*.spec
