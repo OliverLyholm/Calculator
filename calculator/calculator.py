@@ -33,7 +33,7 @@ def calculateResult(calculation):
             value = calculate(node.operand)
             operation = operators[type(node.op)]
             
-            return operation
+            return operation(value)
         
         raise ValueError("Invalid Calculation")
     
